@@ -1,0 +1,62 @@
+[8:39 pm, 26/02/2023] One Direction Batla: num1=int(input())
+num2=int(input())
+ans={}
+carry=0
+step=1
+obj={"carryString": "", "sumString": ""}
+while(num1>0 and num2>0):
+  sum=carry+(num1%10)+(num2%10)
+  if(sum>9):
+    carry=1
+    sum=sum-10
+  else:
+    carry=0
+  num1=num1//10
+  num2=num2//10
+  obj["carryString"]=str(carry)+obj["carryString"]
+  obj["sumString"]=str(sum)+obj["sumString"]
+  ans[f"step{step}"]=obj.copy()
+  step+=1
+if(num1==0):
+  if(num2==0):
+    if(carry==0):
+      print(ans)
+    else:
+      obj["sumString"]=str(carry)+obj["sumString"]
+      ans[f"step{step}"]=obj.copy()
+[8:39 pm, 26/02/2023] One Direction Batla: else:
+    while(num2>0):
+      sum=carry+(num2%10)
+      if(sum>9):
+        carry=1
+        sum=sum-10
+      else:
+        carry=0
+      num2=num2//10
+      if(num2>0):
+        obj["carryString"]=str(carry)+obj["carryString"]
+      obj["sumString"]=str(sum)+obj["sumString"]
+      ans[f"step{step}"]=obj.copy()
+      step+=1
+    if(carry!=0):
+      obj["sumString"]=str(carry)+obj["sumString"]
+      ans[f"step{step}"]=obj.copy()
+else:
+  while(num1>0):
+    sum=carry+(num1%10)
+    if(sum>9):e
+      carry=1
+      sum=sum-10
+    else:
+      carry=0
+    num1=num1//10
+    if(num1>0):
+      obj["carryString"]=str(carry)+obj["carryString"]
+    obj["sumString"]=str(sum)+obj["sumString"]
+    ans[f"step{step}"]=obj.copy()
+    step+=1
+  if(carry!=0):
+    obj["sumString"]=str(carry)+obj["sumString"]
+    ans[f"step{step}"]=obj.copy()
+
+print(ans)

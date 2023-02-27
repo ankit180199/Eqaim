@@ -1,0 +1,14 @@
+a=int(input())
+b=10
+fl=0
+while(a>0):
+  if(b>a%10):
+    b=a%10
+  else:
+    fl=1
+    break
+  a=a//10
+if(fl==0):
+  print(True)
+else:
+  print(False)
